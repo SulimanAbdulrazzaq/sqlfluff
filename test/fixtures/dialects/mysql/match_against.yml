@@ -1,0 +1,373 @@
+# YML test files are auto-generated from SQL files and should not be edited by
+# hand. To help enforce this, the "hash" field in the file must match a hash
+# computed by SQLFluff when running the tests. Please run
+# `python test/generate_parse_fixture_yml.py`  to generate them after adding or
+# altering SQL files.
+_hash: fe36cb596f3bc9fb96aa7c7c536d4fbad6c19c8482e56c47e71b3f74cef7a59c
+file:
+- statement:
+    select_statement:
+      select_clause:
+        keyword: SELECT
+        select_clause_element:
+          wildcard_expression:
+            wildcard_identifier:
+              star: '*'
+      from_clause:
+        keyword: FROM
+        from_expression:
+          from_expression_element:
+            table_expression:
+              table_reference:
+                naked_identifier: articles
+      where_clause:
+        keyword: WHERE
+        expression:
+          function:
+            function_name:
+              function_name_identifier: MATCH
+            function_contents:
+            - bracketed:
+              - start_bracket: (
+              - column_reference:
+                  naked_identifier: title
+              - comma: ','
+              - column_reference:
+                  naked_identifier: body
+              - end_bracket: )
+            - keyword: AGAINST
+            - bracketed:
+                start_bracket: (
+                expression:
+                  quoted_literal: "'database'"
+                end_bracket: )
+- statement_terminator: ;
+- statement:
+    select_statement:
+      select_clause:
+        keyword: SELECT
+        select_clause_element:
+          wildcard_expression:
+            wildcard_identifier:
+              star: '*'
+      from_clause:
+        keyword: FROM
+        from_expression:
+          from_expression_element:
+            table_expression:
+              table_reference:
+                naked_identifier: articles
+      where_clause:
+        keyword: WHERE
+        expression:
+          function:
+            function_name:
+              function_name_identifier: MATCH
+            function_contents:
+            - bracketed:
+              - start_bracket: (
+              - column_reference:
+                  naked_identifier: title
+              - comma: ','
+              - column_reference:
+                  naked_identifier: body
+              - end_bracket: )
+            - keyword: AGAINST
+            - bracketed:
+              - start_bracket: (
+              - expression:
+                  quoted_literal: "'database'"
+              - keyword: IN
+              - keyword: NATURAL
+              - keyword: LANGUAGE
+              - keyword: MODE
+              - end_bracket: )
+- statement_terminator: ;
+- statement:
+    select_statement:
+      select_clause:
+        keyword: SELECT
+        select_clause_element:
+          wildcard_expression:
+            wildcard_identifier:
+              star: '*'
+      from_clause:
+        keyword: FROM
+        from_expression:
+          from_expression_element:
+            table_expression:
+              table_reference:
+                naked_identifier: articles
+      where_clause:
+        keyword: WHERE
+        expression:
+          function:
+            function_name:
+              function_name_identifier: MATCH
+            function_contents:
+            - bracketed:
+              - start_bracket: (
+              - column_reference:
+                  naked_identifier: title
+              - comma: ','
+              - column_reference:
+                  naked_identifier: body
+              - end_bracket: )
+            - keyword: AGAINST
+            - bracketed:
+              - start_bracket: (
+              - expression:
+                  quoted_literal: "'database'"
+              - keyword: IN
+              - keyword: NATURAL
+              - keyword: LANGUAGE
+              - keyword: MODE
+              - keyword: WITH
+              - keyword: QUERY
+              - keyword: EXPANSION
+              - end_bracket: )
+- statement_terminator: ;
+- statement:
+    select_statement:
+      select_clause:
+        keyword: SELECT
+        select_clause_element:
+          wildcard_expression:
+            wildcard_identifier:
+              star: '*'
+      from_clause:
+        keyword: FROM
+        from_expression:
+          from_expression_element:
+            table_expression:
+              table_reference:
+                naked_identifier: articles
+      where_clause:
+        keyword: WHERE
+        expression:
+          function:
+            function_name:
+              function_name_identifier: MATCH
+            function_contents:
+            - bracketed:
+              - start_bracket: (
+              - column_reference:
+                  naked_identifier: title
+              - comma: ','
+              - column_reference:
+                  naked_identifier: body
+              - end_bracket: )
+            - keyword: AGAINST
+            - bracketed:
+              - start_bracket: (
+              - expression:
+                  quoted_literal: "'+database -oracle'"
+              - keyword: IN
+              - keyword: BOOLEAN
+              - keyword: MODE
+              - end_bracket: )
+- statement_terminator: ;
+- statement:
+    select_statement:
+      select_clause:
+        keyword: SELECT
+        select_clause_element:
+          wildcard_expression:
+            wildcard_identifier:
+              star: '*'
+      from_clause:
+        keyword: FROM
+        from_expression:
+          from_expression_element:
+            table_expression:
+              table_reference:
+                naked_identifier: articles
+      where_clause:
+        keyword: WHERE
+        expression:
+          function:
+            function_name:
+              function_name_identifier: MATCH
+            function_contents:
+            - bracketed:
+                start_bracket: (
+                column_reference:
+                  naked_identifier: title
+                end_bracket: )
+            - keyword: AGAINST
+            - bracketed:
+              - start_bracket: (
+              - expression:
+                  quoted_literal: "'database'"
+              - keyword: WITH
+              - keyword: QUERY
+              - keyword: EXPANSION
+              - end_bracket: )
+- statement_terminator: ;
+- statement:
+    select_statement:
+      select_clause:
+        keyword: SELECT
+        select_clause_element:
+          wildcard_expression:
+            wildcard_identifier:
+              star: '*'
+      from_clause:
+        keyword: FROM
+        from_expression:
+          from_expression_element:
+            table_expression:
+              table_reference:
+                naked_identifier: articles
+            alias_expression:
+              alias_operator:
+                keyword: AS
+              naked_identifier: a
+      where_clause:
+        keyword: WHERE
+        expression:
+          function:
+            function_name:
+              function_name_identifier: MATCH
+            function_contents:
+            - bracketed:
+              - start_bracket: (
+              - column_reference:
+                - naked_identifier: a
+                - dot: .
+                - naked_identifier: title
+              - comma: ','
+              - column_reference:
+                - naked_identifier: a
+                - dot: .
+                - naked_identifier: body
+              - end_bracket: )
+            - keyword: AGAINST
+            - bracketed:
+                start_bracket: (
+                expression:
+                  variable: '@search_term'
+                end_bracket: )
+- statement_terminator: ;
+- statement:
+    select_statement:
+      select_clause:
+      - keyword: SELECT
+      - select_clause_element:
+          column_reference:
+            naked_identifier: id
+      - comma: ','
+      - select_clause_element:
+          function:
+            function_name:
+              function_name_identifier: MATCH
+            function_contents:
+            - bracketed:
+              - start_bracket: (
+              - column_reference:
+                  naked_identifier: title
+              - comma: ','
+              - column_reference:
+                  naked_identifier: body
+              - end_bracket: )
+            - keyword: AGAINST
+            - bracketed:
+                start_bracket: (
+                expression:
+                  quoted_literal: "'database'"
+                end_bracket: )
+          alias_expression:
+            alias_operator:
+              keyword: AS
+            naked_identifier: score
+      from_clause:
+        keyword: FROM
+        from_expression:
+          from_expression_element:
+            table_expression:
+              table_reference:
+                naked_identifier: articles
+- statement_terminator: ;
+- statement:
+    select_statement:
+      select_clause:
+        keyword: SELECT
+        select_clause_element:
+          column_reference:
+            naked_identifier: id
+      from_clause:
+        keyword: FROM
+        from_expression:
+          from_expression_element:
+            table_expression:
+              table_reference:
+                naked_identifier: articles
+      where_clause:
+        keyword: WHERE
+        expression:
+        - function:
+            function_name:
+              function_name_identifier: MATCH
+            function_contents:
+            - bracketed:
+                start_bracket: (
+                column_reference:
+                  naked_identifier: title
+                end_bracket: )
+            - keyword: AGAINST
+            - bracketed:
+                start_bracket: (
+                expression:
+                  quoted_literal: "'database'"
+                end_bracket: )
+        - comparison_operator:
+            raw_comparison_operator: '>'
+        - numeric_literal: '0.5'
+        - binary_operator: AND
+        - column_reference:
+            naked_identifier: status
+        - comparison_operator:
+            raw_comparison_operator: '='
+        - numeric_literal: '1'
+- statement_terminator: ;
+- statement:
+    select_statement:
+      select_clause:
+        keyword: SELECT
+        select_clause_element:
+          column_reference:
+            naked_identifier: id
+      from_clause:
+        keyword: FROM
+        from_expression:
+          from_expression_element:
+            table_expression:
+              table_reference:
+                naked_identifier: articles
+      orderby_clause:
+      - keyword: ORDER
+      - keyword: BY
+      - expression:
+          function:
+            function_name:
+              function_name_identifier: MATCH
+            function_contents:
+            - bracketed:
+              - start_bracket: (
+              - column_reference:
+                  naked_identifier: title
+              - comma: ','
+              - column_reference:
+                  naked_identifier: body
+              - end_bracket: )
+            - keyword: AGAINST
+            - bracketed:
+              - start_bracket: (
+              - expression:
+                  quoted_literal: "'database'"
+              - keyword: IN
+              - keyword: BOOLEAN
+              - keyword: MODE
+              - end_bracket: )
+      - keyword: DESC
+- statement_terminator: ;
