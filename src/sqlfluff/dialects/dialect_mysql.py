@@ -598,6 +598,10 @@ class FunctionSegment(ansi.FunctionSegment):
                 Ref("ConvertFunctionNameSegment"),
                 Ref("ConvertFunctionContentsSegment"),
             ),
+            Sequence(
+                Ref("MatchFunctionNameSegment"),
+                Ref("MatchFunctionContentsSegment"),
+            ),
         ],
         at=0,
     )
@@ -3136,6 +3140,48 @@ class ConvertFunctionContentsSegment(BaseSegment):
         OneOf(
             Sequence(Ref("CommaSegment"), Ref("DatatypeSegment")),
             Sequence("USING", OneOf("BINARY", Ref("NakedIdentifierSegment"))),
+        ),
+    )
+
+
+class MatchFunctionNameSegment(BaseSegment):
+    """MATCH function name segment.
+
+    Need to specify as type function_name so that linting rules identify it properly.
+    """
+
+    type = "function_name"
+    match_grammar: Matchable = StringParser(
+        "MATCH", KeywordSegment, type="function_name_identifier"
+    )
+
+
+class MatchFunctionContentsSegment(BaseSegment):
+    """MATCH ... AGAINST full-text search function contents.
+
+    MATCH (col1, col2, ...) AGAINST (expr [search_modifier])
+
+    https://dev.mysql.com/doc/refman/8.4/en/fulltext-search.html
+    """
+
+    type = "function_contents"
+    match_grammar: Matchable = Sequence(
+        Bracketed(Delimited(Ref("ColumnReferenceSegment"))),
+        "AGAINST",
+        Bracketed(
+            Ref("ExpressionSegment"),
+            OneOf(
+                Sequence(
+                    "IN",
+                    "NATURAL",
+                    "LANGUAGE",
+                    "MODE",
+                    Sequence("WITH", "QUERY", "EXPANSION", optional=True),
+                ),
+                Sequence("IN", "BOOLEAN", "MODE"),
+                Sequence("WITH", "QUERY", "EXPANSION"),
+                optional=True,
+            ),
         ),
     )
 
